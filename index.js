@@ -4,6 +4,11 @@ var chalk = require("chalk");
 
 var userName = readlineSync.question('May I have your name? ');
 
+if(userName === ""){
+  console.log("Please enter your name");
+  userName = readlineSync.question('May I have your name? ');
+}
+
 console.log("\n \nHi " + userName + " enter your birth date and \nI will tell you if your birth date is prime or not. \n ");
 
 var numberOfDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -18,6 +23,7 @@ function getDate()
   var birthDate = userBirthDate.split('/');
   var DD = birthDate[0];
   var MM = birthDate[1];
+
   if (DD < 31 || MM < 12 || DD > 0 || MM > 0 || (!isNaN(DD)) || (!isNaN(MM)))
   {
       if (DD < numberOfDays[MM - 1])
