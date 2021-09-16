@@ -4,16 +4,23 @@ var chalk = require("chalk");
 var regEx = /^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])$/;
 var numberOfDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-var userName = readlineSync.question('May I have your name? ');
+var userName = readlineSync.question(chalk.green.bold('May I have your name? \n'))
 
-if(userName === ""){
-  console.log("Please enter your name");
-  userName = readlineSync.question('May I have your name? ');
+checkUserName(userName);
+
+
+function checkUserName(userName){
+  if(userName === ""){
+  console.log("Please enter your name. \n");
+  userName = readlineSync.question(chalk.green.bold('May I have your name? \n'))
+  checkUserName(userName);
+}
+else{
+console.log("\n \nHi " + chalk.white.bgBlue.bold(userName) + " enter your birth date and \nI will tell you if your birth day is a prime number. \n ");
+getDate();
 }
 
-console.log("\n \nHi " + userName + " enter your birth date and \nI will tell you if your birth date is prime or not. \n ");
-
-getDate();
+}
 
 function getDate()
 {
