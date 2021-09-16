@@ -56,7 +56,7 @@ function checkPrime(date) {
     }
 
     if (isPrime) {
-      console.log("\n \nHey, your birth date is a prime number");
+      console.log("\n \nHey, your birth date is a prime number. You can share it on your social media.");
     }
     else {
       console.log("\n \nHey, your birth date is not a prime number");
